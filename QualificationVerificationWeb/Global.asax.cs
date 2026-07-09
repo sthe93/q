@@ -1,7 +1,6 @@
-﻿using DocumentFormat.OpenXml.ExtendedProperties;
+using DocumentFormat.OpenXml.ExtendedProperties;
 using Newtonsoft.Json;
 using System;
-using System.Diagnostics;
 using System.Net;
 using System.Security.Principal;
 using System.Web;
@@ -38,13 +37,10 @@ namespace QualificationVerificationWeb
 
         protected void Application_AuthenticateRequest(Object sender, EventArgs e)
         {
-            Debug.WriteLine("AuthenticateRequest triggered");
-
             HttpCookie authCookie = Context.Request.Cookies[FormsAuthentication.FormsCookieName];
             if (authCookie != null)
             {
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
-                Debug.WriteLine("Auth cookie value: " + authCookie.Value);
                 if (authTicket != null && !authTicket.Expired)
                 {
                     FormsIdentity _identity = new FormsIdentity(authTicket);
@@ -53,33 +49,15 @@ namespace QualificationVerificationWeb
                     GenericPrincipal _principal = new GenericPrincipal(_identity, roles);
                     Context.User = _principal;
 
-                    Debug.WriteLine("User authenticated: " + authTicket.Name + " Role: " + authTicket.UserData);
-                }
-                else
-                {
-                    Debug.WriteLine("Auth ticket is null or expired.");
                 }
             }
-            else
-            {
-                Debug.WriteLine("Auth cookie not found.");
-            }
         }
-        protected void Application_BeginRequest(Object sender, EventArgs e)
-        {
-            string requestedUrl = HttpContext.Current.Request.RawUrl;
-            Debug.WriteLine("BeginRequest: " + requestedUrl);
-        }
-
         protected void Application_PreRequestHandlerExecute(object sender, EventArgs e)
         {
             var page = HttpContext.Current.Handler as System.Web.UI.Page;
-            if(page != null && !page.IsPostBack)
+            if (page != null && Context.Session != null)
             {
-                if(Context.Session != null)
-                {
-                   page.ViewStateUserKey = Session.SessionID;
-                }
+                page.ViewStateUserKey = Session.SessionID;
             }
         }
 

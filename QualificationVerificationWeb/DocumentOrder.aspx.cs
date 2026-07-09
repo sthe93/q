@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using QualificationVerificationWeb.Helper;
 using QualificationVerificationWeb.Helper.PayGate;
 using QualificationVerificationWeb.ViewModels;
@@ -1632,6 +1632,25 @@ namespace QualificationVerificationWeb
             {
                 lblErrorMessage.Text = "* Please select Delivery Method.";
                 return false;
+            }
+
+            if (ddlAcademicDocument.SelectedValue == "E")
+            {
+                if (String.IsNullOrWhiteSpace(ddlElectronicDestination.SelectedValue))
+                {
+                    lblErrorMessage.Text = "* Please select Electronic Copy Destination.";
+                    pnlElectronicCopyDestination.Visible = true;
+                    return false;
+                }
+
+                if (ddlElectronicDestination.SelectedValue == "International" &&
+                    (ddlCountryElectronicInternationalOrder.SelectedItem == null || ddlCountryElectronicInternationalOrder.SelectedValue == "0"))
+                {
+                    lblErrorMessage.Text = "* Please select Country.";
+                    pnlElectronicCopyDestination.Visible = true;
+                    pnlCountry.Visible = true;
+                    return false;
+                }
             }
 
 
