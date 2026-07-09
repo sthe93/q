@@ -1,4 +1,4 @@
-﻿using Microsoft.Reporting.WebForms;
+using Microsoft.Reporting.WebForms;
 using Newtonsoft.Json;
 using QualificationVerificationWeb.Admin.Content;
 using QualificationVerificationWeb.Helper;
@@ -82,6 +82,11 @@ namespace QualificationVerificationWeb.Admin
 
         }
         
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            // Required when rendering gvExport to an Excel response outside normal page rendering.
+        }
+
         private void ApplyRoleVisibility()
         {
             string roleLabel = Session["UserRoleData"] as string ?? "";
