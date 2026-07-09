@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QualificationVerificationWeb.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="QualificationVerificationWeb_za_ac_uj_webservices_Service" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://webservices.uj.ac.za/StudentAD/Service.asmx</Value>
+    </Setting>
+    <Setting Name="QualificationVerificationWeb_WebReferenceDoc_ApplicationDocuments" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://dev.soldev.uj.ac.za/FeesGrantServices/ApplicationDocuments.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

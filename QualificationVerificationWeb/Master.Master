@@ -1,0 +1,85 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.Master.cs" Inherits="QualificationVerificationWeb.Master" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Qualification Verification</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9,IE=11, IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- Web Fonts  -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css" />
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap.css")%>" />
+     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap/font-awesome/css/font-awesome.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap/magnific-popup/magnific-popup.css")%>"  />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap/bootstrap-datepicker/css/datepicker3.css")%>"  />
+    <link href="<%= ResolveUrl("~/Content/bootstrap/bootstrap-timepicker/css/bootstrap-timepicker.css")%>"  rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/Content/bootstrap/bootstrap-timepicker/css/bootstrap-timepicker.min.css")%>"  rel="stylesheet" />
+    <!-- Theme CSS -->
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/theme.css")%>" />
+                                     <!-- Skin CSS -->
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/skins/default.css")%>" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <!-- Theme Custom CSS -->
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/theme-custom.css")%>" />
+    <!-- Head Libs -->
+    <script src="Content/bootstrap/modernizr/modernizr.js"></script>
+  
+    <!-- for multiselect -->
+    <script src="Content/bootstrap/jquery/jquery.js"></script>
+     
+
+    <style type="text/css">
+                    body {
+                        overflow: scroll !important;
+                    }
+</style>
+</head>
+<body>
+<form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+<header class="page-header" style="position: fixed; text-align: center; background-position: right; width: 100%; margin-top: 0; margin-left: 0; background-image: url('UJ_header_Logo.png'); background-repeat: no-repeat">
+<h2 style="text-align: center">Corporate Governance - Qualification Documents Order Platform</h2>
+</header>
+<section id="Section1" class="panel" runat="server">
+<div class="row">
+<div style="padding-top: 10px; padding-left: 25px; padding-right: 25px;">
+<asp:HiddenField ID="__RequestVerificationToken" runat="server" />
+<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+</div>
+</section>
+<footer id="footer" class="summary-footer" style="width: 100%; position: absolute;">
+<div class="panel-footer" style="background-color: #26003b; border-radius: 0;">
+<p style="text-align: center">© Copyright <script>document.write(new Date().getFullYear())</script> - University of Johannesburg </p>
+</div>
+</footer>
+<!-- multiselect -->
+<script src="Content/bootstrap/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+<script src="Scripts/bootstrap.js"></script>
+<!-- Vendor -->
+<script src="Content/bootstrap/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+<script src="Content/bootstrap/nanoscroller/nanoscroller.js"></script>
+<script src="Content/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="Content/bootstrap/magnific-popup/magnific-popup.js"></script>
+<script src="Content/bootstrap/jquery-placeholder/jquery.placeholder.js"></script>
+<!-- Specific Page Vendor -->
+<script src="Content/bootstrap/jquery-ui/js/jquery-ui-custom.js"></script>
+<script src="Content/bootstrap/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+<!-- Theme Base, Components and Settings -->
+<script src="Scripts/javascripts/theme.js"></script>
+<!-- Theme Custom -->
+<script src="Scripts/javascripts/theme.custom.js"></script>
+<!-- Theme Initialization Files -->
+<script src="Scripts/javascripts/theme.init.js"></script>
+<!-- Examples -->
+<script src="Content/bootstrap/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+<script src="Content/bootstrap/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+<script src="Scripts/Common/Config.js?currentTime=@DateTime.Now.Ticks"></script>
+</form>
+</body>
+</html>
+
+        

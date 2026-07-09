@@ -1,0 +1,33 @@
+﻿2026-01-12 11:05:47 - PayGateUrl: https://secure.paygate.co.za/payweb3/initiate.trans
+2026-01-12 11:05:47 - PayGateQueryUrl: https://secure.paygate.co.za/payweb3/query.trans
+2026-01-12 11:05:47 - PayGateId: 1039903102811
+2026-01-12 11:05:47 - Reference: 8281
+2026-01-12 11:05:47 - Amount: 15000
+2026-01-12 11:05:47 - Currency: ZAR
+2026-01-12 11:05:47 - ReturnUrl: http://localhost:64393/QualificationVerification/OnlinePayment
+2026-01-12 11:05:47 - TransactionDate: 2026-01-12 11:05:47
+2026-01-12 11:05:47 - Locale: en-za
+2026-01-12 11:05:47 - Country: ZAF
+2026-01-12 11:05:47 - CustomerEmail: nmkwanazi@uj.ac.za
+2026-01-12 11:05:47 - EncryptionKey: tzWPHsqZxQr5
+2026-01-12 11:05:47 - initiatePaymentResult: Sorry we are unable to process your online payment at the moment. Kindly contact transcripts@uj.ac.za for further information.
+2026-01-15 15:43:10 - Exception:    at BusinessRules.HttpHelper.HttpCallJson[T](String url, String Method, String _object) in C:\workspace\QualificationVerification\QualificationVerificationWeb\Helper\HttpHelper.cs:line 96
+   at QualificationVerificationWeb.DocumentOrder.AddQualificationDocument(Int32 generatedStudentId) in C:\workspace\QualificationVerification\QualificationVerificationWeb\DocumentOrder.aspx.cs:line 1307
+   at QualificationVerificationWeb.DocumentOrder.RecordSaveInBD(Validator validator) in C:\workspace\QualificationVerification\QualificationVerificationWeb\DocumentOrder.aspx.cs:line 956
+   at QualificationVerificationWeb.DocumentOrder.btnConfirm_Click(Object sender, EventArgs e) in C:\workspace\QualificationVerification\QualificationVerificationWeb\DocumentOrder.aspx.cs:line 1118
+2026-02-13 13:19:18 - Exception:    at BusinessRules.HttpHelper.HttpCallJson[T](String url, String method, String jsonBody, String token) in C:\workspace\QualificationVerification\QualificationVerificationWeb\Helper\HttpHelper.cs:line 70
+   at BusinessRules.HttpHelper.HttpCallJson[T](String url, String method, String token) in C:\workspace\QualificationVerification\QualificationVerificationWeb\Helper\HttpHelper.cs:line 31
+   at QualificationVerificationWeb.DocumentOrder.btnConfirm_Click(Object sender, EventArgs e) in C:\workspace\QualificationVerification\QualificationVerificationWeb\DocumentOrder.aspx.cs:line 1099
+2026-02-18 11:20:18 - PayGateUrl: https://secure.paygate.co.za/payweb3/initiate.trans
+2026-02-18 11:20:18 - PayGateQueryUrl: https://secure.paygate.co.za/payweb3/query.trans
+2026-02-18 11:20:18 - PayGateId: 1039903102811
+2026-02-18 11:20:18 - Reference: 8382
+2026-02-18 11:20:18 - Amount: 40000
+2026-02-18 11:20:18 - Currency: ZAR
+2026-02-18 11:20:18 - ReturnUrl: http://localhost:64393/QualificationVerification/OnlinePayment
+2026-02-18 11:20:18 - TransactionDate: 2026-02-18 11:20:18
+2026-02-18 11:20:18 - Locale: en-za
+2026-02-18 11:20:18 - Country: ZAF
+2026-02-18 11:20:18 - CustomerEmail: nmkwanazi@uj.ac.za
+2026-02-18 11:20:18 - EncryptionKey: tzWPHsqZxQr5
+2026-02-18 11:20:18 - initiatePaymentResult: Sorry we are unable to process your online payment at the moment. Kindly contact transcripts@uj.ac.za for further information.

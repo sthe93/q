@@ -1,0 +1,273 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AcademicDocumentMaster.master.cs" Inherits="QualificationVerificationWeb.Admin.AcademicDocumentMaster" %>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>UJ Qualification Verification</title>
+    <link rel="icon" href="https://www.uj.ac.za/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=11, IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Fonts and CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/font-awesome/css/font-awesome.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/magnific-popup/magnific-popup.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/bootstrap-datepicker/css/datepicker3.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/bootstrap-timepicker/css/bootstrap-timepicker.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/bootstrap-timepicker/css/bootstrap-timepicker.min.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/css/theme.css")%>" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/css/skins/default.css")%>" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css"/>
+
+    <%-- <link rel="stylesheet" href="Content/css/themeUJ.css" />--%>
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/css/theme-custom.css")%>" />
+    <script src="Content/bootstrap/modernizr/modernizr.js"></script>
+    <script src="Content/bootstrap/jquery/jquery.js"></script>
+
+    <style type="text/css">
+        body {
+            overflow: scroll !important;
+        }
+
+        .custom-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: #ff6f00;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+            z-index: 999;
+        }
+
+        .logo img {
+            height: 80px;
+        }
+
+        .custom-header h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            flex-grow: 1;
+            text-align: center;
+            user-select: none;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            color: white;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 5px 10px;
+            height: auto;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .userbox {
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            cursor: pointer;
+            flex-direction: column;
+        }
+
+        .userbox * {
+            color: white !important;
+        }
+
+        .profile-picture img {
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: white;
+            line-height: 1.2;
+            text-align: left;
+        }
+
+        .profile-info .name {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .profile-info .role {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .dropdown-toggle {
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            background-color: #ff6f00;
+            border: none;
+            border-radius: 4px;
+            padding: 0;
+            width: 110%;
+            margin-top: 5px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-menu a, .dropdown-menu button {
+            display: block;
+            width: 100%;
+            background-color: #ff6f00;
+            color: white !important;
+            padding: 10px 15px;
+            text-align: left;
+            border: none;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .dropdown-menu a:hover, .dropdown-menu button:hover {
+            background-color: #d35400;
+        }
+
+        @media screen and (max-width: 768px) {
+            .custom-header {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 20px;
+                text-align: center;
+            }
+
+            .logo img {
+                height: 60px;
+                margin-bottom: 10px;
+            }
+
+            .custom-header h2 {
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+
+            .header-right {
+                flex-direction: column;
+                align-items: flex-end;
+                width: auto;
+                height: auto;
+            }
+
+            .dropdown-menu {
+                left: auto;
+                right: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <!-- Header -->
+        <header class="custom-header">
+            <!-- Logo -->
+            <div class="logo">
+                <img src="Images/UJ_header_Logo.png" alt="UJ - ICS: Hive" />
+            </div>
+
+            <!-- Title -->
+            <h2>Qualification Verification</h2>
+
+            <!-- Profile Box -->
+            <div class="header-right" style="padding-right: 10px">
+                <div id="userbox" class="userbox" onclick="toggleDropdown()">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <figure class="profile-picture">
+                            <img src="Content/images/user2.png" alt="User" />
+                        </figure>
+                        <div class="profile-info">
+                            <div class="logged-text">Logged in user:</div>
+                            <span class="name">
+                                <asp:Label ID="lblUserName" runat="server" Text="" Font-Size="Small"></asp:Label>
+                            </span>
+                            <span class="role">
+                                <asp:Label ID="lblUserRole" runat="server" Text="" Font-Size="Small"></asp:Label>
+                            </span>
+                        </div>
+                        <i class="fa fa-caret-down dropdown-toggle"></i>
+                    </div>
+
+                    <!-- Dropdown -->
+                    <div class="dropdown-menu" id="userDropdown">
+                        <asp:LinkButton ID="btnLogout" runat="server" OnClick="btnLogout_Click">
+                            <i class="fa fa-power-off"></i> Logout
+                        </asp:LinkButton>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="col-md-12" style="padding: 25px; padding-top: 100px;">
+            <section id="Section1" class="panel panel-dark" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </section>
+        </div>
+
+        <!-- JS for Dropdown -->
+        <script>
+            function toggleDropdown() {
+                const dropdown = document.getElementById('userDropdown'); 
+                dropdown.classList.toggle('show'); 
+            }
+
+            document.addEventListener('click', function (e) {
+                const userbox = document.getElementById('userbox');
+                const dropdown = document.getElementById('userDropdown');
+
+                if (!userbox.contains(e.target)) {
+                    dropdown.classList.remove('show');
+                }
+            });
+        </script>
+
+        <!-- Libraries -->
+       <%-- <script src="Content/bootstrap/jquery/jquery.min.js"></script>--%>
+        <script src="Content/bootstrap/bootstrap-multiselect/bootstrap-multiselect.js"></script>
+        <script src="../Scripts/bootstrap.js"></script>
+        <script src="Content/bootstrap/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+        <script src="Content/bootstrap/nanoscroller/nanoscroller.js"></script>
+        <script src="Content/bootstrap/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+        <script src="Content/bootstrap/magnific-popup/magnific-popup.js"></script>
+        <script src="Content/bootstrap/jquery-placeholder/jquery.placeholder.js"></script>
+        <script src="Content/bootstrap/jquery-ui/js/jquery-ui-custom.js"></script>
+        <script src="Content/bootstrap/jquery-ui-touch-punch/jquery.ui.touch-punch.js"></script>
+        <script src="../Scripts/javascripts/theme.js"></script>
+        <script src="../Scripts/javascripts/theme.custom.js"></script>
+        <script src="../Scripts/javascripts/theme.init.js"></script>
+        <script src="Content/bootstrap/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+        <script src="Content/bootstrap/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script src="../Scripts/Common/Config.js"></script>
+        <script src="../Scripts/Common/CommonAdmin.js"></script>
+    </form>
+</body>
+</html>
