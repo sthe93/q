@@ -5,7 +5,7 @@
 <head runat="server">
     <title>UJ Qualification Verification - Login</title>
     <link rel="icon" href="https://www.uj.ac.za/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/font-awesome/css/font-awesome.css")%>" />
 
     <style>
         body {

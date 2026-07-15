@@ -7,8 +7,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9,IE=11, IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <!-- Web Fonts  -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css" />
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap.css")%>" />
      <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap/font-awesome/css/font-awesome.css")%>" />
@@ -20,7 +18,7 @@
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/theme.css")%>" />
                                      <!-- Skin CSS -->
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/skins/default.css")%>" />
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Content/bootstrap/jquery-ui/css/ui-lightness/jquery-ui-custom.css")%>" />
     <!-- Theme Custom CSS -->
     <link rel="stylesheet" href="<%= ResolveUrl("~/Content/css/theme-custom.css")%>" />
     <!-- Head Libs -->

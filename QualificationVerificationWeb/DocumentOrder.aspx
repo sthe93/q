@@ -357,8 +357,11 @@
         function Validate_pop() {
             var isValid = false;
 
-            isValid = Page_ClientValidate('Code1');
+            isValid = Page_ClientValidate('DeliveryMethod');
 
+            if (isValid) {
+                isValid = Page_ClientValidate('Code1');
+            }
             if (isValid) {
                 isValid = Page_ClientValidate('Street1');
             }
@@ -1012,7 +1015,7 @@
                                                             <asp:DropDownList runat="server" Width="300px" AutoPostBack="true" ID="ddlAcademicDocument" OnSelectedIndexChanged="ddlAcademicDocument_SelectedIndexChanged">
                                                             </asp:DropDownList>
                                                             <a href="#" data-toggle="tooltip" title="Click on Delivery Method dropdown to select." style="padding-left: 10px"><span class="fa fa-question-circle"></span></a>
-                                                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlAcademicDocument" ID="rfvAcademicDocument" InitialValue="0" ForeColor="Red" Style="display: inline; padding-left: 20px;" ErrorMessage="Please select Delivery Type" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                            <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlAcademicDocument" ID="rfvAcademicDocument" InitialValue="0" ForeColor="Red" Style="display: inline; padding-left: 20px;" ErrorMessage="Please select Delivery Method" Display="Dynamic" ValidationGroup="DeliveryMethod"></asp:RequiredFieldValidator>
                                                         </div>
                                                     </div>
                                                     <asp:Panel ID="pnlElectronicCopyDestination" runat="server" Visible="false" CssClass="form-inline" Style="margin-top: 10px;">
@@ -1025,6 +1028,7 @@
                                                             <asp:ListItem Text="Local" Value="Local" />
                                                             <asp:ListItem Text="International" Value="International" />
                                                         </asp:DropDownList>
+                                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlElectronicDestination" ID="rfvElectronicDestination" InitialValue="" ForeColor="Red" Style="display: inline; padding-left: 20px;" ErrorMessage="Please select Electronic Copy Destination" Display="Dynamic" ValidationGroup="DeliveryMethod"></asp:RequiredFieldValidator>
                                                     </asp:Panel>
                                                     <asp:Panel ID="pnlCountry" runat="server" Visible="false" CssClass="form-inline" Style="margin-top: 10px;">
                                                         <label class="col-md-2 control-label" style="text-align: left; width: 200px">
