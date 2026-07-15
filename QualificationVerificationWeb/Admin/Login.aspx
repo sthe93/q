@@ -5,7 +5,7 @@
 <head runat="server">
     <title>UJ Qualification Verification - Login</title>
     <link rel="icon" href="https://www.uj.ac.za/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="<%= ResolveUrl("~/Admin/Content/bootstrap/font-awesome/css/font-awesome.css")%>" />
 
     <style>
         body {
@@ -172,7 +172,7 @@
                 <label for="txtPassword">Password</label>
                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter password" autocomplete="off"/>
                 <span class="toggle-password" onclick="togglePassword()">
-                    <i id="eyeIcon" runat="server" class="fa-solid fa-eye"></i>
+                    <i id="eyeIcon" runat="server" class="fa fa-eye"></i>
                 </span>
             </div>
 

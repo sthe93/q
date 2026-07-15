@@ -744,6 +744,15 @@ namespace QualificationVerificationWeb
         protected global::System.Web.UI.WebControls.DropDownList ddlElectronicDestination;
 
         /// <summary>
+        /// rfvElectronicDestination control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvElectronicDestination;
+
+        /// <summary>
         /// pnlCountry control.
         /// </summary>
         /// <remarks>
