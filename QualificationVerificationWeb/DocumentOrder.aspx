@@ -1005,6 +1005,9 @@
                                         </div>
                                     </div>
                                     <br>
+                                    <div class="form-group">
+                                        <asp:Label ID="lblPopUpValidationMessage" runat="server" Style="text-align: left" ForeColor="Red" Width="547px"></asp:Label>
+                                    </div>
                                     <div id="divAcademicDocumentMulti" runat="server" class="form-group" visible="false">
                                         <div class="form-inline">
                                             <label class="col-md-2 control-label" style="text-align: left; width: 200px"><span style='color: red'>*</span> Delivery Method : </label>
