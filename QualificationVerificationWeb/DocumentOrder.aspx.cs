@@ -1512,16 +1512,14 @@ namespace QualificationVerificationWeb
         {
             if (ddlAcademicDocument.SelectedValue == "E")
             {
-                DisplyCollectAndElectronic(sender);
-                //if iits  electronic copy show div
+                SetCollectAndElectronicDisplay();
                 pnlElectronicCopyDestination.Visible = true;
-
+                pnlCountry.Visible = ddlElectronicDestination.SelectedValue == "International";
             }
             else if (ddlAcademicDocument.SelectedValue == "S" || ddlAcademicDocument.SelectedValue == "I")
             {
-                //optional if iits not electronic copy hide div
                 pnlElectronicCopyDestination.Visible = false;
-
+                pnlCountry.Visible = false;
 
                 divAddress.Visible = true;
                 divAcademicDocumentMulti.Visible = true;
@@ -1548,20 +1546,19 @@ namespace QualificationVerificationWeb
                     Div66.Visible = true;
                     Div16.Visible = false;
                 }
-
-                popUpConfirmation.Update();
-                ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
-
             }
             else
             {
-                DisplyCollectAndElectronic(sender);
+                SetCollectAndElectronicDisplay();
                 pnlElectronicCopyDestination.Visible = false;
+                pnlCountry.Visible = false;
                 ddlElectronicDestination.ClearSelection();
                 ddlCountryElectronicInternationalOrder.Items.Clear();
             }
 
-
+            AcademicDocumentUpdatePanel.Update();
+            popUpConfirmation.Update();
+            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
         protected void ddlElectronicDestination_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1585,6 +1582,14 @@ namespace QualificationVerificationWeb
 
         private void DisplyCollectAndElectronic(object sender)
         {
+            SetCollectAndElectronicDisplay();
+            AcademicDocumentUpdatePanel.Update();
+            popUpConfirmation.Update();
+            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
+        }
+
+        private void SetCollectAndElectronicDisplay()
+        {
             divAddress.Visible = false;
             divAcademicDocumentMulti.Visible = true;
             AddressTitle.Visible = true;
@@ -1596,8 +1601,6 @@ namespace QualificationVerificationWeb
 
 
             lblNoticeMessage.Text = "<p>HOW LONG WILL IT TAKE TO RECEIVE MY DOCUMENTS?</p><p> Academic record:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 working days</ p > < p > Transcript supplement: &nbsp; &nbsp; &nbsp; &nbsp; 20 working days</ p > ";
-            popUpConfirmation.Update();
-            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
         protected void BindGrid()
         {
