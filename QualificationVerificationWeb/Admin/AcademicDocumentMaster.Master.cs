@@ -15,6 +15,8 @@ namespace QualificationVerificationWeb.Admin
         {
             if (!IsPostBack)
             {
+                EnsureCsrfToken();
+
                 //Safely retrieve from session or User.Identity
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
@@ -30,6 +32,20 @@ namespace QualificationVerificationWeb.Admin
                     lblUserRole.Text = "None";
                 }
             }
+        }
+
+
+        private void EnsureCsrfToken()
+        {
+            string csrfToken = Session["CSRFToken"] as string;
+
+            if (string.IsNullOrEmpty(csrfToken))
+            {
+                csrfToken = Guid.NewGuid().ToString();
+                Session["CSRFToken"] = csrfToken;
+            }
+
+            __RequestVerificationToken.Value = csrfToken;
         }
 
 

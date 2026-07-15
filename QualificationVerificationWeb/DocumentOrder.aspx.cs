@@ -1631,6 +1631,7 @@ namespace QualificationVerificationWeb
             if (ddlAcademicDocument.SelectedValue == "0")
             {
                 lblErrorMessage.Text = "* Please select Delivery Method.";
+                rfvAcademicDocument.IsValid = false;
                 return false;
             }
 
@@ -1640,6 +1641,7 @@ namespace QualificationVerificationWeb
                 {
                     lblErrorMessage.Text = "* Please select Electronic Copy Destination.";
                     pnlElectronicCopyDestination.Visible = true;
+                    rfvElectronicDestination.IsValid = false;
                     return false;
                 }
 
@@ -1649,6 +1651,7 @@ namespace QualificationVerificationWeb
                     lblErrorMessage.Text = "* Please select Country.";
                     pnlElectronicCopyDestination.Visible = true;
                     pnlCountry.Visible = true;
+                    rfvddlCountryElectronicInternationalOrder.IsValid = false;
                     return false;
                 }
             }
@@ -1663,7 +1666,11 @@ namespace QualificationVerificationWeb
             lblErrorMessage.Text = "";
 
             if (!AddressValidation())
+            {
+                popUpConfirmation.Update();
+                ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "showNewRequestValidation", "$('#popUpConfirmationModal').modal('show');", true);
                 return;
+            }
 
 
             if (ddlAcademicDocument.SelectedValue == "S")
