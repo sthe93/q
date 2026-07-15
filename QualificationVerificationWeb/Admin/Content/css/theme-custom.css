@@ -1,1 +1,23 @@
 /* Add here all your CSS customizations */
+
+/* Keep bootstrap-datepicker month navigation visible.
+   The admin theme applies FontAwesome to the prev/next header cells, which can
+   hide the « / » labels and prevent users from navigating to past months. */
+.datepicker table thead tr th.prev,
+.datepicker table thead tr th.next {
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+    color: inherit;
+}
+
+/* Explicitly draw the datepicker navigation arrows. Some browsers do not render
+   the plugin's « / » cell text after the theme font override. */
+.datepicker table thead tr th.prev::before {
+    content: "‹";
+}
+
+.datepicker table thead tr th.next::before {
+    content: "›";
+}
