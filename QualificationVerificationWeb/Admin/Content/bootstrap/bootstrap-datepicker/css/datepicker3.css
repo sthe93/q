@@ -794,3 +794,15 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .datepicker.dropdown-menu td {
   padding: 4px 5px;
 }
+
+/* Ensure month navigation glyphs render with the local font stack.
+   Some theme styles set these header cells to FontAwesome, which hides the
+   bootstrap-datepicker « / » text when the external FontAwesome CDN is removed. */
+.datepicker table thead tr th.prev,
+.datepicker table thead tr th.next {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  color: inherit;
+}
