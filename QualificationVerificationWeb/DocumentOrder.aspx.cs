@@ -1510,18 +1510,18 @@ namespace QualificationVerificationWeb
 
         protected void ddlAcademicDocument_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblPopUpValidationMessage.Text = "";
+
             if (ddlAcademicDocument.SelectedValue == "E")
             {
-                DisplyCollectAndElectronic(sender);
-                //if iits  electronic copy show div
+                SetCollectAndElectronicDisplay();
                 pnlElectronicCopyDestination.Visible = true;
-
+                pnlCountry.Visible = ddlElectronicDestination.SelectedValue == "International";
             }
             else if (ddlAcademicDocument.SelectedValue == "S" || ddlAcademicDocument.SelectedValue == "I")
             {
-                //optional if iits not electronic copy hide div
                 pnlElectronicCopyDestination.Visible = false;
-
+                pnlCountry.Visible = false;
 
                 divAddress.Visible = true;
                 divAcademicDocumentMulti.Visible = true;
@@ -1548,20 +1548,19 @@ namespace QualificationVerificationWeb
                     Div66.Visible = true;
                     Div16.Visible = false;
                 }
-
-                popUpConfirmation.Update();
-                ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
-
             }
             else
             {
-                DisplyCollectAndElectronic(sender);
+                SetCollectAndElectronicDisplay();
                 pnlElectronicCopyDestination.Visible = false;
+                pnlCountry.Visible = false;
                 ddlElectronicDestination.ClearSelection();
                 ddlCountryElectronicInternationalOrder.Items.Clear();
             }
 
-
+            AcademicDocumentUpdatePanel.Update();
+            popUpConfirmation.Update();
+            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
         protected void ddlElectronicDestination_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1585,6 +1584,14 @@ namespace QualificationVerificationWeb
 
         private void DisplyCollectAndElectronic(object sender)
         {
+            SetCollectAndElectronicDisplay();
+            AcademicDocumentUpdatePanel.Update();
+            popUpConfirmation.Update();
+            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
+        }
+
+        private void SetCollectAndElectronicDisplay()
+        {
             divAddress.Visible = false;
             divAcademicDocumentMulti.Visible = true;
             AddressTitle.Visible = true;
@@ -1596,8 +1603,6 @@ namespace QualificationVerificationWeb
 
 
             lblNoticeMessage.Text = "<p>HOW LONG WILL IT TAKE TO RECEIVE MY DOCUMENTS?</p><p> Academic record:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 working days</ p > < p > Transcript supplement: &nbsp; &nbsp; &nbsp; &nbsp; 20 working days</ p > ";
-            popUpConfirmation.Update();
-            ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
         protected void BindGrid()
         {
@@ -1607,7 +1612,7 @@ namespace QualificationVerificationWeb
 
         public bool AddressValidation()
         {
-            lblErrorMessage.Text = "";
+            lblPopUpValidationMessage.Text = "";
 
             if (txtStreet1.Text != "")
             {
@@ -1623,14 +1628,14 @@ namespace QualificationVerificationWeb
 
                 if (containsAnySearchString == true)
                 {
-                    lblErrorMessage.Text = "* PO Box address is not allowed.";
+                    lblPopUpValidationMessage.Text = "* PO Box address is not allowed.";
                     return false;
                 }
             }
 
             if (ddlAcademicDocument.SelectedValue == "0")
             {
-                lblErrorMessage.Text = "* Please select Delivery Method.";
+                lblPopUpValidationMessage.Text = "* Please select Delivery Method.";
                 rfvAcademicDocument.IsValid = false;
                 return false;
             }
@@ -1639,7 +1644,7 @@ namespace QualificationVerificationWeb
             {
                 if (String.IsNullOrWhiteSpace(ddlElectronicDestination.SelectedValue))
                 {
-                    lblErrorMessage.Text = "* Please select Electronic Copy Destination.";
+                    lblPopUpValidationMessage.Text = "* Please select Electronic Copy Destination.";
                     pnlElectronicCopyDestination.Visible = true;
                     rfvElectronicDestination.IsValid = false;
                     return false;
@@ -1648,7 +1653,7 @@ namespace QualificationVerificationWeb
                 if (ddlElectronicDestination.SelectedValue == "International" &&
                     (ddlCountryElectronicInternationalOrder.SelectedItem == null || ddlCountryElectronicInternationalOrder.SelectedValue == "0"))
                 {
-                    lblErrorMessage.Text = "* Please select Country.";
+                    lblPopUpValidationMessage.Text = "* Please select Country.";
                     pnlElectronicCopyDestination.Visible = true;
                     pnlCountry.Visible = true;
                     rfvddlCountryElectronicInternationalOrder.IsValid = false;
@@ -1664,6 +1669,7 @@ namespace QualificationVerificationWeb
         {
 
             lblErrorMessage.Text = "";
+            lblPopUpValidationMessage.Text = "";
 
             if (!AddressValidation())
             {
@@ -1705,7 +1711,7 @@ namespace QualificationVerificationWeb
                 }
                 else
                 {
-                    lblErrorMessage.Text = "* Collect delivery method can only be select once per Request application.";
+                    lblPopUpValidationMessage.Text = "* Collect delivery method can only be select once per Request application.";
                 }
 
             }
@@ -1746,7 +1752,7 @@ namespace QualificationVerificationWeb
                 }
                 else
                 {
-                    lblErrorMessage.Text = "* Electronic Copy method can only be select once per Request application.";
+                    lblPopUpValidationMessage.Text = "* Electronic Copy method can only be select once per Request application.";
                 }
 
             }
@@ -1758,7 +1764,7 @@ namespace QualificationVerificationWeb
             {
                 if ((txtStreet1.Text == "" || txtSuburb1.Text == "" || txtSuburb1.Text == "" || txtCity1.Text == "" || ddlCountry.SelectedItem.Value == "0"))
                 {
-                    lblErrorMessage.Text = "* Please capture all the required fields.";
+                    lblPopUpValidationMessage.Text = "* Please capture all the required fields.";
                 }
                 else
                 {
@@ -1816,7 +1822,7 @@ namespace QualificationVerificationWeb
                     }
                     else
                     {
-                        lblErrorMessage.Text = "* Added address is already in Addres list.";
+                        lblPopUpValidationMessage.Text = "* Added address is already in Addres list.";
                     }
 
                 }
