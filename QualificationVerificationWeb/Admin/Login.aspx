@@ -172,7 +172,7 @@
                 <label for="txtPassword">Password</label>
                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password" placeholder="Enter password" autocomplete="off"/>
                 <span class="toggle-password" onclick="togglePassword()">
-                    <i id="eyeIcon" runat="server" class="fa-solid fa-eye"></i>
+                    <i id="eyeIcon" runat="server" class="fa fa-eye"></i>
                 </span>
             </div>
 
