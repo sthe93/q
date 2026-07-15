@@ -11,3 +11,13 @@
     line-height: 1;
     color: inherit;
 }
+
+/* Explicitly draw the datepicker navigation arrows. Some browsers do not render
+   the plugin's « / » cell text after the theme font override. */
+.datepicker table thead tr th.prev::before {
+    content: "‹";
+}
+
+.datepicker table thead tr th.next::before {
+    content: "›";
+}
