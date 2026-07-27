@@ -1011,7 +1011,7 @@
                                     <div id="divAcademicDocumentMulti" runat="server" class="form-group" visible="false">
                                         <div class="form-inline">
                                             <label class="col-md-2 control-label" style="text-align: left; width: 200px"><span style='color: red'>*</span> Delivery Method : </label>
-                                            <asp:UpdatePanel runat="server" ID="AcademicDocumentUpdatePanel">
+                                            <asp:UpdatePanel runat="server" ID="AcademicDocumentUpdatePanel" UpdateMode="Conditional">
                                                 <ContentTemplate>
                                                     <div class="form-inline">
                                                         <div class="form-inline">
@@ -1045,12 +1045,9 @@
                                                     </asp:Panel>
 
                                                 </ContentTemplate>
-
-
                                                 <Triggers>
-
-                                                    <asp:PostBackTrigger ControlID="btnSave" />
-                                                    <asp:PostBackTrigger ControlID="btnConfirm" />
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlAcademicDocument" EventName="SelectedIndexChanged" />
+                                                    <asp:AsyncPostBackTrigger ControlID="ddlElectronicDestination" EventName="SelectedIndexChanged" />
                                                 </Triggers>
                                             </asp:UpdatePanel>
                                         </div>
@@ -1266,5 +1263,3 @@
     </div>
 
 </asp:Content>
-
-

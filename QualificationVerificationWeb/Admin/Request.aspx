@@ -5,23 +5,46 @@
     <script type="text/javascript">
         function pageLoad(sender, args) {
             $('[data-toggle="tooltip"]').tooltip();
-        }
 
-        $(function () {
-            var date = new Date();
-            date.setDate(date.getDate());
-            $(".data-plugin-datepicker").datepicker({
-               
-                defaultDate: date,
-                endDate: new Date(date.getFullYear(), date.getMonth(), date.getDate())
+            var $dateFields = $(".data-plugin-datepicker");
+            // The theme may initialise these inputs before an MS Ajax page load.
+            // Recreate the picker so its date range and navigation are predictable.
+            $dateFields.each(function () {
+                var $field = $(this);
+                if ($field.data("datepicker")) {
+                    $field.datepicker("remove");
+                }
 
+                $field.datepicker({
+                    format: "yyyy/mm/dd",
+                    startDate: new Date(1900, 0, 1),
+                    endDate: new Date(),
+                    autoclose: true,
+                    todayHighlight: true,
+                    keyboardNavigation: true
+                });
             });
-        });
+        }
 
       
     </script>
 
     <style type="text/css">
+        .datepicker.dropdown-menu {
+            min-width: 220px;
+        }
+
+        .datepicker table {
+            width: 100%;
+        }
+
+        .datepicker table thead tr th.prev,
+        .datepicker table thead tr th.next {
+            visibility: visible;
+            cursor: pointer;
+            width: 30px;
+        }
+
         .setHeight {
             height: 41px !important;
         }
