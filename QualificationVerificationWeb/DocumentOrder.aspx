@@ -1011,8 +1011,9 @@
                                     <div id="divAcademicDocumentMulti" runat="server" class="form-group" visible="false">
                                         <div class="form-inline">
                                             <label class="col-md-2 control-label" style="text-align: left; width: 200px"><span style='color: red'>*</span> Delivery Method : </label>
-                                            <asp:UpdatePanel runat="server" ID="AcademicDocumentUpdatePanel">
-                                                <ContentTemplate>
+                                            <%-- Keep the dependent delivery controls in the modal's UpdatePanel.
+                                                 A nested UpdatePanel caused the selected method and its child
+                                                 controls to be rendered by different async responses. --%>
                                                     <div class="form-inline">
                                                         <div class="form-inline">
                                                             <asp:DropDownList runat="server" Width="300px" AutoPostBack="true" ID="ddlAcademicDocument" OnSelectedIndexChanged="ddlAcademicDocument_SelectedIndexChanged">
@@ -1043,16 +1044,6 @@
                                                             <asp:RequiredFieldValidator runat="server" ControlToValidate="ddlCountryElectronicInternationalOrder" InitialValue="0" ValidationGroup="Country" ID="rfvddlCountryElectronicInternationalOrder" ForeColor="Red" ErrorMessage="Please select Country" Display="Dynamic"></asp:RequiredFieldValidator>
                                                         </div>
                                                     </asp:Panel>
-
-                                                </ContentTemplate>
-
-
-                                                <Triggers>
-
-                                                    <asp:PostBackTrigger ControlID="btnSave" />
-                                                    <asp:PostBackTrigger ControlID="btnConfirm" />
-                                                </Triggers>
-                                            </asp:UpdatePanel>
                                         </div>
                                         <br>
                                         <div id="notice" class="form-group" runat="server" visible="false">
@@ -1266,5 +1257,4 @@
     </div>
 
 </asp:Content>
-
 

@@ -1558,7 +1558,6 @@ namespace QualificationVerificationWeb
                 ddlCountryElectronicInternationalOrder.Items.Clear();
             }
 
-            AcademicDocumentUpdatePanel.Update();
             popUpConfirmation.Update();
             ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
@@ -1579,13 +1578,11 @@ namespace QualificationVerificationWeb
 
 
             // Optional: update panel manually if needed
-               //AcademicDocumentUpdatePanel.Update();
         }
 
         private void DisplyCollectAndElectronic(object sender)
         {
             SetCollectAndElectronicDisplay();
-            AcademicDocumentUpdatePanel.Update();
             popUpConfirmation.Update();
             ScriptManager.RegisterStartupScript(sender as Control, this.GetType(), "successPopup1", "$('#popUpConfirmationModal').modal('show');", true);
         }
