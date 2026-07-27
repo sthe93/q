@@ -1574,6 +1574,8 @@ namespace QualificationVerificationWeb
                 //txtCountryDestination.Text = string.Empty;
             }
 
+            AcademicDocumentUpdatePanel.Update();
+            popUpConfirmation.Update();
             ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "$('#popUpConfirmationModal').modal('show');", true);
 
 
